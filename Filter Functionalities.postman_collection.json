@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "ce4161e4-2951-4904-aff0-837362ec0755",
+		"name": "Filter Functionalities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25233502"
+	},
+	"item": [
+		{
+			"name": "Get All Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/item?condition[price][$gte]=200&condition[price][$lte]=1500&condition[rating]=3&condition[isFeatured] =true&condition[category]=clothing&condition[brand]=AMAZON&condition[color]=white&sort=price,-createdAt&limit=20&skip=0&condition[country]=Madagascar&name=peter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "condition[price][$gte]",
+							"value": "200",
+							"description": "price>200"
+						},
+						{
+							"key": "condition[price][$lte]",
+							"value": "1500",
+							"description": "price<600"
+						},
+						{
+							"key": "condition[rating]",
+							"value": "3",
+							"description": "rating>3"
+						},
+						{
+							"key": "condition[isFeatured] ",
+							"value": "true"
+						},
+						{
+							"key": "condition[category]",
+							"value": "clothing"
+						},
+						{
+							"key": "condition[brand]",
+							"value": "AMAZON"
+						},
+						{
+							"key": "condition[color]",
+							"value": "white"
+						},
+						{
+							"key": "sort",
+							"value": "price,-createdAt"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "condition[country]",
+							"value": "Madagascar"
+						},
+						{
+							"key": "name",
+							"value": "peter"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/item/65acfbb36a2d5273aff5121c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"item",
+						"65acfbb36a2d5273aff5121c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Regiser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"name\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VySWQiOiI2NWFjZjVlYTA4OTNjNjkzMzk3MjFmNjgiLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzA1ODM0MDA5LCJleHAiOjE3MDg0MjYwMDl9.4OYg6cJeCxyxK9LG6xlH4en1cILygW3_apcI8xgupkU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/item/65ace9a269d39eb8ebf6d033",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"item",
+						"65ace9a269d39eb8ebf6d033"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
